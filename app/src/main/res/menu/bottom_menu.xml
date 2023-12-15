@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/botnav_search"
+        android:title="@string/search"
+        android:icon="@drawable/baseline_search_24"/>
+    <item
+        android:id="@+id/botnav_scan"
+        android:title="@string/scan"
+        android:icon="@drawable/baseline_document_scanner_24"/>
+    <item
+        android:id="@+id/botnav_tips"
+        android:title="@string/tips"
+        android:icon="@drawable/baseline_tips_and_updates_24"/>
+    <item
+        android:id="@+id/botnav_others"
+        android:title="@string/others"
+        android:icon="@drawable/baseline_menu_24"/>
+</menu>

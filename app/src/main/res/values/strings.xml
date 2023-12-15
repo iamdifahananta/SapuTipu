@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">SapuTipu App</string>
+    <string name="search">Search</string>
+    <string name="scan">Scan</string>
+    <string name="tips">Tips &amp; Tricks</string>
+    <string name="others">Others</string>
+    <string name="search_placeholder">Account number search</string>
+    <string name="search_account">Search Account</string>
+    <string name="report_account">Report Account</string>
+    <string name="input_message">Enter a message</string>
+    <string name="search_result">Search Result: $100</string>
+    <string name="scan_result">Scan Result:</string>
+    <string name="input_account">Enter bank account number</string>
+    <string name="input_scam_desc">Enter scam description</string>
+    <string name="report">Report</string>
+    <string name="input_title">Enter report title</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="register_desc">Don\'t have an account?</string>
+    <string name="login">Login</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="username">Username</string>
+    <string name="logout">Logout</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
