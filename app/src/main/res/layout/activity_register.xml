@@ -6,14 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".ui.register.RegisterActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/logo_only"
+        android:contentDescription="logo_background" />
+
     <TextView
         android:id="@+id/tv_sign_up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/layout_username"
         android:paddingHorizontal="16dp"
         android:paddingVertical="8dp"
         android:text="@string/sign_up"
@@ -27,10 +36,12 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_sign_up"
+        app:layout_constraintBottom_toTopOf="@+id/layout_email"
         android:paddingHorizontal="16dp"
         android:paddingVertical="8dp"
         app:startIconDrawable="@drawable/baseline_account_box_24"
+        app:hintTextColor="@color/black"
+        app:boxStrokeColor="@color/black"
         >
         <com.project.saputipuapp.customView.UsernameEditText
             android:id="@+id/username"
@@ -46,10 +57,12 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_username"
+        app:layout_constraintBottom_toTopOf="@+id/layout_password"
         android:paddingHorizontal="16dp"
         android:paddingVertical="8dp"
         app:startIconDrawable="@drawable/baseline_email_24"
+        app:hintTextColor="@color/black"
+        app:boxStrokeColor="@color/black"
         >
         <com.project.saputipuapp.customView.EmailEditText
             android:id="@+id/email"
@@ -66,11 +79,13 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_email"
+        app:layout_constraintBottom_toTopOf="@+id/btn_register"
         android:paddingHorizontal="16dp"
         android:paddingVertical="8dp"
         app:startIconDrawable="@drawable/baseline_key_24"
         app:endIconMode="password_toggle"
+        app:hintTextColor="@color/black"
+        app:boxStrokeColor="@color/black"
         >
         <com.project.saputipuapp.customView.PassEditText
             android:id="@+id/password"
@@ -89,17 +104,19 @@
         android:layout_marginVertical="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_password"
+        app:layout_constraintBottom_toTopOf="@+id/btn_login_activity"
         android:text="@string/register"
         app:cornerRadius="4dp"
         />
 
     <TextView
+        android:id="@+id/btn_login_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
         android:paddingVertical="8dp"
         android:text="@string/login"
         android:textStyle="bold"
