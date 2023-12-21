@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class ReportAccResponse(
 
 	@field:SerializedName("laporan")
-	val laporan: ArrayList<LaporanItem>
+	val laporan: ArrayList<LaporanItem>?
 )
 
 data class LaporanItem(

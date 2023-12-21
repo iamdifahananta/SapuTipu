@@ -5,6 +5,10 @@
         android:title="@string/search"
         android:icon="@drawable/baseline_search_24"/>
     <item
+        android:id="@+id/botnav_report"
+        android:title="@string/report"
+        android:icon="@drawable/baseline_report_24"/>
+    <item
         android:id="@+id/botnav_scan"
         android:title="@string/scan"
         android:icon="@drawable/baseline_document_scanner_24"/>

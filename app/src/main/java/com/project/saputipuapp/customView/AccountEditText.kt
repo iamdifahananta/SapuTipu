@@ -14,4 +14,17 @@ class AccountEditText: AppCompatEditText {
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
 
     }
+
+    override fun onTextChanged(
+        text: CharSequence?,
+        start: Int,
+        lengthBefore: Int,
+        lengthAfter: Int
+    ) {
+        if (text.toString().length < 10) {
+            setError("The account number must not be less than 10 characters", null)
+        } else {
+            error = null
+        }
+    }
 }

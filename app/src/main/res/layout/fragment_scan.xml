@@ -1,14 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.scan.ScanFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/scan" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_text"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            app:startIconDrawable="@drawable/baseline_description_24"
+            app:hintTextColor="@color/black"
+            app:boxStrokeColor="@color/black"
+            >
+            <com.project.saputipuapp.customView.DescriptionEditText
+                android:id="@+id/message"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/input_scan_text"
+                android:inputType="textMultiLine|textCapSentences"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
-</FrameLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_text"
+            android:backgroundTint="@color/blue"
+            android:text="@string/scan"
+            app:cornerRadius="4dp"
+            />
+
+        <LinearLayout
+            android:id="@+id/layout_scam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_scan"
+            android:padding="8dp"
+            android:background="@color/gray"
+            android:layout_marginVertical="16dp"
+            android:layout_marginHorizontal="16dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:text="@string/scam"
+                android:textSize="24sp"
+                android:textColor="@color/red"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/result_scam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                tools:text="@string/result"
+                android:textSize="24sp"
+                android:textColor="@color/red"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintTop_toBottomOf="@+id/layout_scam" />
+
+        <LinearLayout
+            android:id="@id/layout_spam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_scam"
+            android:padding="8dp"
+            android:background="@color/gray"
+            android:layout_marginVertical="8dp"
+            android:layout_marginHorizontal="16dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:text="@string/spam"
+                android:textSize="24sp"
+                android:textColor="@color/yellow"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/result_spam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                tools:text="@string/result"
+                android:textSize="24sp"
+                android:textColor="@color/yellow"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintTop_toBottomOf="@+id/layout_spam" />
+
+        <LinearLayout
+            android:id="@+id/layout_neutral"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_spam"
+            android:padding="8dp"
+            android:background="@color/gray"
+            android:layout_marginVertical="8dp"
+            android:layout_marginHorizontal="16dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:text="@string/neutral"
+                android:textSize="24sp"
+                android:textColor="@color/green"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/result_neutral"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                tools:text="@string/result"
+                android:textSize="24sp"
+                android:textColor="@color/green"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintTop_toBottomOf="@+id/layout_neutral" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:progressTint="@color/black"
+            android:visibility="gone" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

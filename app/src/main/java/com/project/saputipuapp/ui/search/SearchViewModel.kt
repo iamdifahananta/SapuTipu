@@ -1,4 +1,4 @@
-package com.project.saputipuapp.ui.search.searchTabs
+package com.project.saputipuapp.ui.search
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -7,37 +7,40 @@ import androidx.lifecycle.ViewModel
 import com.project.saputipuapp.data.response.LaporanItem
 import com.project.saputipuapp.data.response.ReportAccResponse
 import com.project.saputipuapp.data.retrofit.ApiConfig
-import com.project.saputipuapp.utils.ApiCallbackString
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SearchTabViewModel : ViewModel() {
+class SearchViewModel : ViewModel() {
 
-    val listReport = MutableLiveData<ArrayList<LaporanItem>>()
+    val listReports = MutableLiveData<ArrayList<LaporanItem>>()
 
-    fun setSearchAccount(query: String, callback: ApiCallbackString) {
-        ApiConfig.getApiService().getSearchAccount(query)
+    fun setSearchUser(id: String) {
+        ApiConfig.getApiService().getSearchAccount(id)
             .enqueue(object : Callback<ReportAccResponse> {
                 override fun onResponse(
                     call: Call<ReportAccResponse>,
                     response: Response<ReportAccResponse>
                 ) {
                     if (response.isSuccessful) {
-                        listReport.postValue(response.body()?.laporan)
-                        callback.onResponse(response.body() != null, SUCCESS)
+                        val reports = response.body()?.laporan
+                        if (!reports.isNullOrEmpty()) {
+                            listReports.postValue(reports as ArrayList<LaporanItem>)
+                        } else {
+                            listReports.postValue(ArrayList())  // No data found
+                        }
                     }
                 }
 
                 override fun onFailure(call: Call<ReportAccResponse>, t: Throwable) {
-                    Log.e(TAG,"onFailure: ${t.message}")
+                    Log.d("onFailure: ", t.message!!)
                 }
 
             })
     }
 
-    fun getSearchAccount(): LiveData<ArrayList<LaporanItem>> {
-        return listReport
+    fun getListReports(): LiveData<ArrayList<LaporanItem>> {
+        return listReports
     }
 
     companion object {

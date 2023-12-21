@@ -1,14 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.tips.TipsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/tips" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/tv_tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="16dp"
+            android:text="@string/tips_trick"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            />
+
+        <TextView
+            android:id="@+id/tv_tips1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tips"
+            android:layout_margin="16dp"
+            android:text="@string/tips1"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:padding="16dp"
+            android:background="@drawable/rounded_background"
+            />
+
+        <ImageView
+            android:id="@+id/iv_tips1"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tips1"
+            android:src="@drawable/tips1"
+            />
+
+        <TextView
+            android:id="@+id/tv_tips2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_tips1"
+            android:layout_margin="16dp"
+            android:text="@string/tips2"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:padding="16dp"
+            android:background="@drawable/rounded_background"
+            />
+
+        <ImageView
+            android:id="@+id/iv_tips2"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tips2"
+            android:src="@drawable/tips2"
+            />
+
+        <TextView
+            android:id="@+id/tv_tips3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_tips2"
+            android:layout_margin="16dp"
+            android:text="@string/tips3"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:padding="16dp"
+            android:background="@drawable/rounded_background"
+            />
+
+        <ImageView
+            android:id="@+id/iv_tips3"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tips3"
+            android:src="@drawable/tips3"
+            />
+
+        <TextView
+            android:id="@+id/tv_tips4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_tips3"
+            android:layout_margin="16dp"
+            android:text="@string/tips4"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:padding="16dp"
+            android:background="@drawable/rounded_background"
+            />
+
+        <ImageView
+            android:id="@+id/iv_tips4"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tips4"
+            android:src="@drawable/tips4"
+            />
+
+        <TextView
+            android:id="@+id/tv_tips5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_tips4"
+            android:layout_margin="16dp"
+            android:text="@string/tips5"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:padding="16dp"
+            android:background="@drawable/rounded_background"
+            />
+
+        <ImageView
+            android:id="@+id/iv_tips5"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tips5"
+            android:layout_marginVertical="16dp"
+            android:src="@drawable/tips5"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

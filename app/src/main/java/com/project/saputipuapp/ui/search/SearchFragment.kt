@@ -1,46 +1,93 @@
 package com.project.saputipuapp.ui.search
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.StringRes
-import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.project.saputipuapp.R
+import com.project.saputipuapp.data.response.LaporanItem
 import com.project.saputipuapp.databinding.FragmentSearchBinding
+import com.project.saputipuapp.ui.detail.DetailActivity
 
 class SearchFragment : Fragment() {
 
     private lateinit var binding: FragmentSearchBinding
+    private lateinit var viewModel: SearchViewModel
+    private lateinit var adapter: SearchAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentSearchBinding.inflate(inflater, container, false)
-        setViewPager()
+
+        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[SearchViewModel::class.java]
+        adapter = SearchAdapter()
+
+        binding.rvItem.layoutManager = LinearLayoutManager(activity)
+        binding.rvItem.setHasFixedSize(true)
+        binding.rvItem.adapter = adapter
+
+        getAccount()
+        searchAccount()
+        detailReport()
 
         return binding.root
     }
 
-    private fun setViewPager() {
-        val sectionsPagerAdapter = SectionsPagerAdapter(requireActivity())
-        val viewPager: ViewPager2 = binding.viewPager
-        viewPager.adapter = sectionsPagerAdapter
-        val tabs: TabLayout = binding.tabs
-        TabLayoutMediator(tabs, viewPager) { tab, position ->
-            tab.text = resources.getString(TAB_TITLES[position])
-        }.attach()
+    private fun getAccount() {
+        viewModel.getListReports().observe(viewLifecycleOwner) {
+            if (it != null) {
+                if (it.isEmpty()) {
+                    Toast.makeText(requireContext(), R.string.search_failed, Toast.LENGTH_SHORT).show()
+                    showLoading(false)
+                } else {
+                    adapter.setList(it)
+                    showLoading(false)
+                }
+            }
+        }
+        binding.search.setOnKeyListener { v, keyCode, event ->
+            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+                searchAccount()
+                return@setOnKeyListener true
+            }
+            return@setOnKeyListener false
+        }
     }
 
-    companion object {
-        @StringRes
-        private val TAB_TITLES = intArrayOf(
-            R.string.search_account,
-            R.string.report_account
-        )
+    private fun searchAccount() {
+        binding.btnSearch.setOnClickListener {
+            val id = binding.search.text.toString()
+
+            viewModel.setSearchUser(id)
+            showLoading(true)
+        }
     }
+
+    private fun detailReport() {
+        adapter.setOnItemClickCallback(object : SearchAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: LaporanItem) {
+                Intent(requireActivity(), DetailActivity::class.java).also {
+                    it.putExtra(DetailActivity.EXTRA_ID, data.id)
+                    startActivity(it)
+                }
+            }
+        })
+    }
+
+    private fun showLoading(state: Boolean) {
+        if (state) {
+            binding.progressBar.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.visibility = View.GONE
+        }
+    }
+
 }
