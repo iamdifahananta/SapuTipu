@@ -14,7 +14,7 @@ class ApiConfig {
                 .addInterceptor(loggingInterceptor)
                 .build()
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://saputipu.cyclic.app/")
+                .baseUrl("http://10.9.8.35:3000/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()
